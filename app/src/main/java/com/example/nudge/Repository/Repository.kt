@@ -30,15 +30,15 @@ class Repository(context : Context) {
 
     fun getSquadList() = inner_db.squadDao().getAllData()
 
-    fun getUserList() = inner_db.userDao().getAllData()
+    //fun getUserList() = inner_db.userDao().getAllData()
 
-    fun insertSquadData(text: String) = inner_db.squadDao().insert(SquadEntity(0, 0, "blank", "blank"))
+    fun insertSquadData(formation : Int, position : Int, name : String, key : String) = inner_db.squadDao().insert(SquadEntity(formation, position, name, key))
 
-    fun insertUserData(text: String) = inner_db.userDao().insert(UserEntity(0, "blank", "blank"))
+    // fun insertUserData(id : Int, name : String, formation : String) = inner_db.userDao().insert(UserEntity(id, name, formation))
 
     fun deleteSquadData() = inner_db.squadDao().deleteAllData()
 
-    fun deleteUserData() = inner_db.userDao().deleteAllData()
+    // fun deleteUserData() = inner_db.userDao().deleteAllData()
 
     // outer_db is Firebase Realtime DB + Firbase Storage
 

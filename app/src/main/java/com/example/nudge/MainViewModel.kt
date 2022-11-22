@@ -2,10 +2,8 @@ package com.example.nudge
 
 import android.app.Application
 import android.graphics.drawable.Drawable
-import android.net.Uri
 import androidx.lifecycle.*
 import com.example.nudge.Database.SquadDatabase
-import com.example.nudge.Entity.PlayerData
 import com.example.nudge.Entity.PlayerEntity
 import com.example.nudge.Entity.SquadEntity
 import com.example.nudge.Entity.UserEntity
@@ -30,17 +28,17 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getData() = viewModelScope.launch(Dispatchers.IO) {
         _squadList.postValue(repository.getSquadList())
-        _userList.postValue(repository.getUserList())
+        // _userList.postValue(repository.getUserList())
     }
 
-    fun insertData(text : String) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insertSquadData(text)
-        repository.insertUserData(text)
+    fun insertData(formation : Int, position : Int, name : String, key : String) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insertSquadData(formation, position, name, key)
+        // repository.insertUserData(id, name, formation)
     }
 
     fun removeData() = viewModelScope.launch(Dispatchers.IO) {
         repository.deleteSquadData()
-        repository.deleteUserData()
+        // repository.deleteUserData()
     }
 
     fun insertPlayerData(name : String, image : Drawable) = viewModelScope.launch(Dispatchers.IO) {

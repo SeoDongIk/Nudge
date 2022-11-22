@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+    private var saveSquad : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.saveSquad.setOnClickListener {
-
+            saveSquad = true
         }
 
         binding.loadSquad.setOnClickListener {
@@ -71,9 +72,6 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        //
-
-
-
     }
+
 }
