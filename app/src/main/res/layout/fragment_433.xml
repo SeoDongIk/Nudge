@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@drawable/ground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FormationFragment.Fragment433">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:background="@color/white"
+                    android:id="@+id/image1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <ImageView
+                    android:background="@color/white"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:id="@+id/image2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <ImageView
+                    android:background="@color/white"
+                    android:id="@+id/image3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center|bottom"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:background="@color/white"
+                    android:id="@+id/image4"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <ImageView
+                    android:background="@color/white"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/image5"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <ImageView
+                    android:background="@color/white"
+                    android:id="@+id/image6"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center|bottom"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:background="@color/white"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/image7"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <ImageView
+                    android:background="@color/white"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/image8"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <ImageView
+                    android:background="@color/white"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/image9"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+                <ImageView
+                    android:background="@color/white"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/image10"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center|bottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/white"
+                    android:id="@+id/image11"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>

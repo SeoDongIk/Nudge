@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/fragment4231">
+
+    <fragment
+        android:id="@+id/fragment4231"
+        android:name="com.example.nudge.FormationFragment.Fragment4231"
+        android:label="fragment_4231"
+        tools:layout="@layout/fragment_4231" >
+        <action
+            android:id="@+id/action_fragment4231_to_fragment433"
+            app:destination="@id/fragment433" />
+        <action
+            android:id="@+id/action_fragment4231_to_fragment343"
+            app:destination="@id/fragment343" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment433"
+        android:name="com.example.nudge.FormationFragment.Fragment433"
+        android:label="fragment_433"
+        tools:layout="@layout/fragment_433" >
+        <action
+            android:id="@+id/action_fragment433_to_fragment4231"
+            app:destination="@id/fragment4231" />
+        <action
+            android:id="@+id/action_fragment433_to_fragment343"
+            app:destination="@id/fragment343" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment343"
+        android:name="com.example.nudge.FormationFragment.Fragment343"
+        android:label="fragment_343"
+        tools:layout="@layout/fragment_343" >
+        <action
+            android:id="@+id/action_fragment343_to_fragment4231"
+            app:destination="@id/fragment4231" />
+        <action
+            android:id="@+id/action_fragment343_to_fragment433"
+            app:destination="@id/fragment433" />
+    </fragment>
+</navigation>
