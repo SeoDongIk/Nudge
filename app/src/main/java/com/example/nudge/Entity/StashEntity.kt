@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "squad_table")
-data class SquadEntity (
+@Entity(tableName = "stash_table")
+data class StashEntity (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "formation")
     var formation : Int,

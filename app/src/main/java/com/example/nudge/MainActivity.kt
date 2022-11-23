@@ -3,11 +3,13 @@ package com.example.nudge
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.example.nudge.Entity.SquadEntity
 import com.example.nudge.FormationFragment.Fragment343
 import com.example.nudge.FormationFragment.Fragment4231
 import com.example.nudge.FormationFragment.Fragment433
@@ -16,11 +18,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SendEventListener {
 
     private lateinit var binding : ActivityMainBinding
     private lateinit var viewModel: MainViewModel
-    private var saveSquad : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,11 +38,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.saveSquad.setOnClickListener {
-            saveSquad = true
+            viewModel.removeStashData()
         }
 
         binding.loadSquad.setOnClickListener {
-
+            viewModel.getStashData()
+            Log.d("viewModel", viewModel.stashList.value.toString())
         }
 
         // Spinner + Fragment
@@ -72,6 +74,11 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun sendMessage(message: SquadEntity) {
+        Log.d("log", message.toString())
+        viewModel.insertStashData(message.formation, message.position, message.name, message.key)
     }
 
 }

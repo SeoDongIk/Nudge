@@ -5,15 +5,18 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.nudge.Dao.SquadDao
+import com.example.nudge.Dao.StashDao
 import com.example.nudge.Dao.UserDao
 import com.example.nudge.Entity.SquadEntity
+import com.example.nudge.Entity.StashEntity
 import com.example.nudge.Entity.UserEntity
 
-@Database(entities = [UserEntity::class, SquadEntity::class], version = 2)
+@Database(entities = [UserEntity::class, SquadEntity::class, StashEntity::class], version = 2)
 abstract class SquadDatabase : RoomDatabase() {
 
     abstract fun userDao() : UserDao
     abstract fun squadDao() : SquadDao
+    abstract fun stashDao() : StashDao
 
     companion object {
         @Volatile

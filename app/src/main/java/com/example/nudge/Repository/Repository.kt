@@ -11,6 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.nudge.Database.SquadDatabase
 import com.example.nudge.Entity.PlayerEntity
 import com.example.nudge.Entity.SquadEntity
+import com.example.nudge.Entity.StashEntity
 import com.example.nudge.Entity.UserEntity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,13 +31,19 @@ class Repository(context : Context) {
 
     fun getSquadList() = inner_db.squadDao().getAllData()
 
+    fun getStashList() = inner_db.stashDao().getAllData()
+
     //fun getUserList() = inner_db.userDao().getAllData()
 
     fun insertSquadData(formation : Int, position : Int, name : String, key : String) = inner_db.squadDao().insert(SquadEntity(formation, position, name, key))
 
+    fun insertStashData(formation : Int, position : Int, name : String, key : String) = inner_db.stashDao().insert(StashEntity(formation, position, name, key))
+
     // fun insertUserData(id : Int, name : String, formation : String) = inner_db.userDao().insert(UserEntity(id, name, formation))
 
     fun deleteSquadData() = inner_db.squadDao().deleteAllData()
+
+    fun deleteStashData() = inner_db.stashDao().deleteAllData()
 
     // fun deleteUserData() = inner_db.userDao().deleteAllData()
 

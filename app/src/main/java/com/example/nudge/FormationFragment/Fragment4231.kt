@@ -9,9 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.nudge.Entity.SquadEntity
 import com.example.nudge.MainViewModel
 import com.example.nudge.R
 import com.example.nudge.SelectActivity
+import com.example.nudge.SendEventListener
 import com.example.nudge.databinding.Fragment4231Binding
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -21,9 +23,12 @@ class Fragment4231 : Fragment() {
     private var _binding : Fragment4231Binding? = null
     private val binding get() = _binding!!
     private lateinit var viewmodel : MainViewModel
+    private var forSaveSquadList : MutableList<SquadEntity> = mutableListOf<SquadEntity>()
+    lateinit var sendEventListener : SendEventListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sendEventListener = context as SendEventListener
     }
 
     override fun onCreateView(
@@ -113,6 +118,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 1, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     2->{
                         Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
@@ -124,6 +131,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 2, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     3->{
                         Toast.makeText(context, "3", Toast.LENGTH_SHORT).show()
@@ -135,6 +144,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 3, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     4->{
                         Toast.makeText(context, "4", Toast.LENGTH_SHORT).show()
@@ -146,6 +157,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 4, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     5->{
                         Toast.makeText(context, "5", Toast.LENGTH_SHORT).show()
@@ -157,6 +170,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 5, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     6->{
                         Toast.makeText(context, "6", Toast.LENGTH_SHORT).show()
@@ -168,6 +183,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 6, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     7->{
                         Toast.makeText(context, "7", Toast.LENGTH_SHORT).show()
@@ -179,6 +196,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 7, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     8->{
                         Toast.makeText(context, "8", Toast.LENGTH_SHORT).show()
@@ -190,6 +209,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 8, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     9->{
                         Toast.makeText(context, "9", Toast.LENGTH_SHORT).show()
@@ -201,6 +222,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 9, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     10->{
                         Toast.makeText(context, "10", Toast.LENGTH_SHORT).show()
@@ -212,6 +235,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 10, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                     11->{
                         Toast.makeText(context, "11", Toast.LENGTH_SHORT).show()
@@ -223,6 +248,8 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
+                        val mySquadEntity = SquadEntity(4231, 11, name!!,key!!)
+                        sendEventListener.sendMessage(mySquadEntity)
                     }
                 }
             }
