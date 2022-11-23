@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.nudge.Entity.SquadEntity
@@ -31,6 +32,12 @@ class MainActivity : AppCompatActivity(), SendEventListener {
         binding.vm = viewModel
         binding.lifecycleOwner = this
 
+        // Basic
+
+        val Fragment4231 = Fragment4231()
+        val Fragment433 = Fragment433()
+        val Fragment343 = Fragment343()
+
         // Click Listener
 
         binding.uploadPlayer.setOnClickListener {
@@ -53,16 +60,33 @@ class MainActivity : AppCompatActivity(), SendEventListener {
         }
 
         binding.loadSquad.setOnClickListener {
-            Log.d("viewModel", viewModel.squadList.value.toString())
+            val bundle : Bundle = Bundle()
+
+            var image_list = ArrayList<String>()
+            image_list.add(0, "test")
+            for(squadEntity in viewModel.squadList.value!!){
+                image_list.add(squadEntity.position, squadEntity.key)
+            }
+            bundle.putStringArrayList("message", image_list)
+            if(viewModel.squadList.value!!.get(1).formation == 4231){
+                Toast.makeText(baseContext, "1", Toast.LENGTH_SHORT).show()
+                Fragment4231.arguments = bundle
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, Fragment4231).commit()
+            }
+            if(viewModel.squadList.value!!.get(1).formation == 433){
+                Fragment433.arguments = bundle
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, Fragment433).commit()
+            }
+            if(viewModel.squadList.value!!.get(1).formation == 343){
+                Fragment343.arguments = bundle
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, Fragment343).commit()
+            }
+
         }
 
         // Spinner + Fragment
 
         binding.spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, listOf("4231", "433", "343"))
-
-        val Fragment4231 = Fragment4231()
-        val Fragment433 = Fragment433()
-        val Fragment343 = Fragment343()
 
         binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
