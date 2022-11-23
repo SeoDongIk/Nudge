@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.nudge.Entity.SquadEntity
+import com.example.nudge.Entity.StashEntity
 import com.example.nudge.MainViewModel
 import com.example.nudge.R
 import com.example.nudge.SelectActivity
@@ -118,7 +119,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 1, name!!,key!!)
+                        val mySquadEntity = StashEntity(1, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     2->{
@@ -131,7 +132,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 2, name!!,key!!)
+                        val mySquadEntity = StashEntity(2, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     3->{
@@ -144,7 +145,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 3, name!!,key!!)
+                        val mySquadEntity = StashEntity(3, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     4->{
@@ -157,7 +158,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 4, name!!,key!!)
+                        val mySquadEntity = StashEntity(4, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     5->{
@@ -170,7 +171,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 5, name!!,key!!)
+                        val mySquadEntity = StashEntity(5, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     6->{
@@ -183,7 +184,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 6, name!!,key!!)
+                        val mySquadEntity = StashEntity(6, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     7->{
@@ -196,7 +197,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 7, name!!,key!!)
+                        val mySquadEntity = StashEntity(7, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     8->{
@@ -209,7 +210,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 8, name!!,key!!)
+                        val mySquadEntity = StashEntity(8, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     9->{
@@ -222,7 +223,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 9, name!!,key!!)
+                        val mySquadEntity = StashEntity(9, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     10->{
@@ -235,7 +236,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 10, name!!,key!!)
+                        val mySquadEntity = StashEntity(10, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                     11->{
@@ -248,7 +249,7 @@ class Fragment4231 : Fragment() {
                                     .into(imageView)
                             }
                         })
-                        val mySquadEntity = SquadEntity(4231, 11, name!!,key!!)
+                        val mySquadEntity = StashEntity(11, 4231, name!!,key!!)
                         sendEventListener.sendMessage(mySquadEntity)
                     }
                 }

@@ -7,10 +7,10 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "stash_table")
 data class StashEntity (
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "formation")
-    var formation : Int,
     @ColumnInfo(name = "position")
     var position : Int,
+    @ColumnInfo(name = "formation")
+    var formation : Int,
     @ColumnInfo(name = "name")
     var name : String,
     @ColumnInfo(name = "key")

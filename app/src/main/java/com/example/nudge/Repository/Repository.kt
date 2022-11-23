@@ -35,9 +35,9 @@ class Repository(context : Context) {
 
     //fun getUserList() = inner_db.userDao().getAllData()
 
-    fun insertSquadData(formation : Int, position : Int, name : String, key : String) = inner_db.squadDao().insert(SquadEntity(formation, position, name, key))
+    fun insertSquadData(position : Int, formation : Int, name : String, key : String) = inner_db.squadDao().insert(SquadEntity(position, formation, name, key))
 
-    fun insertStashData(formation : Int, position : Int, name : String, key : String) = inner_db.stashDao().insert(StashEntity(formation, position, name, key))
+    fun insertStashData(position : Int, formation : Int, name : String, key : String) = inner_db.stashDao().insert(StashEntity(position, formation, name, key))
 
     // fun insertUserData(id : Int, name : String, formation : String) = inner_db.userDao().insert(UserEntity(id, name, formation))
 

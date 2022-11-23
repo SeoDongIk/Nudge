@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.nudge.Entity.SquadEntity
+import com.example.nudge.Entity.StashEntity
 import com.example.nudge.FormationFragment.Fragment343
 import com.example.nudge.FormationFragment.Fragment4231
 import com.example.nudge.FormationFragment.Fragment433
@@ -38,12 +39,21 @@ class MainActivity : AppCompatActivity(), SendEventListener {
         }
 
         binding.saveSquad.setOnClickListener {
-            viewModel.removeStashData()
+            if(viewModel.stashList.value != null){
+                for(stashEntity in viewModel.stashList.value!!){
+                    viewModel.insertData(stashEntity.position, stashEntity.formation, stashEntity.name, stashEntity.key)
+                }
+                viewModel.getData()
+                viewModel.removeStashData()
+            }
+        }
+
+        viewModel.squadList.observeForever {
+            viewModel.getData()
         }
 
         binding.loadSquad.setOnClickListener {
-            viewModel.getStashData()
-            Log.d("viewModel", viewModel.stashList.value.toString())
+            Log.d("viewModel", viewModel.squadList.value.toString())
         }
 
         // Spinner + Fragment
@@ -76,9 +86,10 @@ class MainActivity : AppCompatActivity(), SendEventListener {
 
     }
 
-    override fun sendMessage(message: SquadEntity) {
+    override fun sendMessage(message: StashEntity) {
         Log.d("log", message.toString())
-        viewModel.insertStashData(message.formation, message.position, message.name, message.key)
+        viewModel.insertStashData(message.position, message.formation, message.name, message.key)
+        viewModel.getStashData()
     }
 
 }

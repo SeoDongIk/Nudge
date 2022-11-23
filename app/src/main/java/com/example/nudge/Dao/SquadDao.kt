@@ -11,7 +11,7 @@ interface SquadDao {
     @Query("SELECT * FROM squad_table")
     fun getAllData(): List<SquadEntity>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(squad : SquadEntity)
 
     @Query("DELETE FROM squad_table")

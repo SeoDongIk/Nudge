@@ -42,13 +42,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         // _userList.postValue(repository.getUserList())
     }
 
-    fun insertData(formation : Int, position : Int, name : String, key : String) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insertSquadData(formation, position, name, key)
+    fun insertData(position : Int, formation : Int, name : String, key : String) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insertSquadData(position, formation, name, key)
         // repository.insertUserData(id, name, formation)
     }
 
-    fun insertStashData(formation : Int, position : Int, name : String, key : String) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insertStashData(formation, position, name, key)
+    fun insertStashData(position : Int, formation : Int, name : String, key : String) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insertStashData(position, formation, name, key)
         // repository.insertUserData(id, name, formation)
     }
 
@@ -73,6 +73,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             playerEntityList.value = it
         }
         return playerEntityList
+    }
+
+    class Factory(val application: Application) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return MainViewModel(application) as T
+        }
     }
 
 }
