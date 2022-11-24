@@ -32,7 +32,6 @@ class Fragment4231 : Fragment() {
         super.onCreate(savedInstanceState)
         sendEventListener = context as SendEventListener
         val mAuth = FirebaseAuth.getInstance()
-
     }
 
     override fun onCreateView(
@@ -41,8 +40,6 @@ class Fragment4231 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = Fragment4231Binding.inflate(inflater, container, false)
-
-        // From Activity
 
         // Image Listener
 

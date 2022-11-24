@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -73,11 +74,27 @@ class MainActivity : AppCompatActivity(), SendEventListener {
             for(squadEntity in viewModel.squadList.value!!){
                 viewModel.insertStashData(squadEntity.position, squadEntity.formation, squadEntity.name, squadEntity.key)
             }
+            if(viewModel.squadList.value!!.get(1).formation == 4231){
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, Fragment4231).commit()
+                binding.spinner.setSelection(0)
+            }else if (viewModel.squadList.value!!.get(1).formation == 433){
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, Fragment433).commit()
+                binding.spinner.setSelection(1)
+            }else if (viewModel.squadList.value!!.get(1).formation == 343){
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, Fragment343).commit()
+                binding.spinner.setSelection(2)
+            }
             Handler().postDelayed({
                 viewModel.getStashData()
                 Toast.makeText(baseContext, viewModel.stashList.value.toString() + "0", Toast.LENGTH_SHORT).show()
                 Toast.makeText(baseContext, viewModel.squadList.value.toString() + "1", Toast.LENGTH_SHORT).show()
-                Fragment4231.loadSquad(viewModel.squadList.value!!)
+                if(viewModel.squadList.value!!.get(1).formation == 4231){
+                    Fragment4231.loadSquad(viewModel.squadList.value!!)
+                }else if (viewModel.squadList.value!!.get(1).formation == 433){
+                    Fragment433.loadSquad(viewModel.squadList.value!!)
+                }else if (viewModel.squadList.value!!.get(1).formation == 343){
+                    Fragment343.loadSquad(viewModel.squadList.value!!)
+                }
             },1000)
         }
 
