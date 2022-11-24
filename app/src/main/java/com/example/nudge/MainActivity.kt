@@ -54,19 +54,27 @@ class MainActivity : AppCompatActivity(), SendEventListener {
         }
 
         binding.saveSquad.setOnClickListener {
-            viewModel.removeData()
-            if(viewModel.stashList.value != null){
-                for(stashEntity in viewModel.stashList.value!!){
-                    viewModel.insertData(stashEntity.position, stashEntity.formation, stashEntity.name, stashEntity.key)
-                    viewModel.getData()
+            if(viewModel.stashList.value!!.size == 11){
+                viewModel.removeData()
+                if(viewModel.stashList.value != null){
+                    for(stashEntity in viewModel.stashList.value!!){
+                        viewModel.insertData(stashEntity.position, stashEntity.formation, stashEntity.name, stashEntity.key)
+                        viewModel.getData()
+                    }
                 }
+            }else{
+                Toast.makeText(baseContext, "11명을 모두 채워주세요.", Toast.LENGTH_SHORT).show()
             }
         }
 
         binding.loadSquad.setOnClickListener {
             viewModel.getStashData()
             viewModel.getData()
+            for(squadEntity in viewModel.squadList.value!!){
+                viewModel.insertStashData(squadEntity.position, squadEntity.formation, squadEntity.name, squadEntity.key)
+            }
             Handler().postDelayed({
+                viewModel.getStashData()
                 Toast.makeText(baseContext, viewModel.stashList.value.toString() + "0", Toast.LENGTH_SHORT).show()
                 Toast.makeText(baseContext, viewModel.squadList.value.toString() + "1", Toast.LENGTH_SHORT).show()
                 Fragment4231.loadSquad(viewModel.squadList.value!!)
@@ -81,12 +89,15 @@ class MainActivity : AppCompatActivity(), SendEventListener {
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if(p2 == 0){
+                    viewModel.removeStashData()
                     supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, Fragment4231).commit()
                 }
                 if(p2 == 1){
+                    viewModel.removeStashData()
                     supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, Fragment433).commit()
                 }
                 if(p2 == 2){
+                    viewModel.removeStashData()
                     supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, Fragment343).commit()
                 }
             }
