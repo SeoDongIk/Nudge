@@ -44,139 +44,6 @@ class Fragment4231 : Fragment() {
 
         // From Activity
 
-        if(this.arguments != null){
-            val image_list : ArrayList<String> = this.arguments?.getStringArrayList("message") as ArrayList<String>
-            Toast.makeText(context, image_list.toString(), Toast.LENGTH_LONG).show()
-
-//            for(position: Int in 1..11){
-//                val myRef = Firebase.storage.reference.child(image_list[position] + ".png")
-//
-//                when(position){
-//                    1->{
-//                        Toast.makeText(context, "1", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image1
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    2->{
-//                        Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image2
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    3->{
-//                        Toast.makeText(context, "3", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image3
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    4->{
-//                        Toast.makeText(context, "4", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image4
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    5->{
-//                        Toast.makeText(context, "5", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image5
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    6->{
-//                        Toast.makeText(context, "6", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image6
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    7->{
-//                        Toast.makeText(context, "7", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image7
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    8->{
-//                        Toast.makeText(context, "8", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image8
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    9->{
-//                        Toast.makeText(context, "9", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image9
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    10->{
-//                        Toast.makeText(context, "10", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image10
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                    11->{
-//                        Toast.makeText(context, "11", Toast.LENGTH_SHORT).show()
-//                        val imageView = binding.image11
-//                        myRef.downloadUrl.addOnCompleteListener({
-//                            if(it.isSuccessful){
-//                                Glide.with(this)
-//                                    .load(it.result)
-//                                    .into(imageView)
-//                            }
-//                        })
-//                    }
-//                }
-//            }
-        }
-
         // Image Listener
 
         binding.image1.setOnClickListener {
@@ -236,6 +103,127 @@ class Fragment4231 : Fragment() {
         }
 
         return binding.root
+    }
+
+    fun loadSquad(squadEntityList : List<SquadEntity>){
+        Toast.makeText(context, squadEntityList.toString() + "2", Toast.LENGTH_SHORT).show()
+        for(i in 0..squadEntityList.size-1){
+            val position = i
+            val key = squadEntityList.get(i).key
+            val myRef = Firebase.storage.reference.child(key + ".png")
+            when(position){
+                0->{
+                    val imageView = binding.image1
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                1->{
+                    val imageView = binding.image2
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                2->{
+                    val imageView = binding.image3
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                3->{
+                    val imageView = binding.image4
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                4->{
+                    val imageView = binding.image5
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                5->{
+                    val imageView = binding.image6
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                6->{
+                    val imageView = binding.image7
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                7->{
+                    val imageView = binding.image8
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                8->{
+                    val imageView = binding.image9
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                9->{
+                    val imageView = binding.image10
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+                10->{
+                    val imageView = binding.image11
+                    myRef.downloadUrl.addOnCompleteListener({
+                        if(it.isSuccessful){
+                            Glide.with(this)
+                                .load(it.result)
+                                .into(imageView)
+                        }
+                    })
+                }
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -394,5 +382,4 @@ class Fragment4231 : Fragment() {
             }
         }
     }
-
 }

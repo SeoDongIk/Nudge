@@ -75,7 +75,6 @@ class Repository(context : Context) {
             }
         }
         outer_db.getReference("player").addValueEventListener(postListener)
-        Log.d("download", livePlayerEntityList.toString())
         return livePlayerEntityList
     }
 
