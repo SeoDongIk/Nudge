@@ -55,17 +55,20 @@ class MainActivity : AppCompatActivity(), SendEventListener {
         }
 
         binding.saveSquad.setOnClickListener {
-            if(viewModel.stashList.value!!.size == 11){
-                viewModel.removeData()
-                if(viewModel.stashList.value != null){
-                    for(stashEntity in viewModel.stashList.value!!){
-                        viewModel.insertData(stashEntity.position, stashEntity.formation, stashEntity.name, stashEntity.key)
-                        viewModel.getData()
+            viewModel.getStashData()
+            Handler().postDelayed({
+                if(viewModel.stashList.value!!.size == 11){
+                    viewModel.removeData()
+                    if(viewModel.stashList.value != null){
+                        for(stashEntity in viewModel.stashList.value!!){
+                            viewModel.insertData(stashEntity.position, stashEntity.formation, stashEntity.name, stashEntity.key)
+                            viewModel.getData()
+                        }
                     }
+                }else{
+                    Toast.makeText(baseContext, "11명을 모두 채워주세요.", Toast.LENGTH_SHORT).show()
                 }
-            }else{
-                Toast.makeText(baseContext, "11명을 모두 채워주세요.", Toast.LENGTH_SHORT).show()
-            }
+            },1000)
         }
 
         binding.loadSquad.setOnClickListener {
@@ -96,6 +99,12 @@ class MainActivity : AppCompatActivity(), SendEventListener {
                     Fragment343.loadSquad(viewModel.squadList.value!!)
                 }
             },1000)
+            Handler().postDelayed({
+                for(squadEntity in viewModel.squadList.value!!){
+                    viewModel.insertStashData(squadEntity.position, squadEntity.formation, squadEntity.name, squadEntity.key)
+                }
+            },1000)
+
         }
 
         // Spinner + Fragment
